@@ -1,6 +1,7 @@
 "use client"
 
 import {useState} from "react"
+import Link from "next/link"
 
 export function Sidebar(){
     const [open, setOpen] = useState(true)
@@ -14,8 +15,19 @@ export function Sidebar(){
             </div>
             <nav className="px-4">
                 <ul className="space-y-2">
-                    <li>{open && "Dashboard"}</li>
-                    <li>{open && "Cadastro"}</li>
+                    <li>
+                        <Link href="/">
+                            {open && "Dashboard"}
+                        </Link>
+                    </li>
+                    <li className="font-medium">
+                        {open && "Cadastro"}
+                    </li>
+                    <li className="ml-4">
+                        <Link href="/cadastro/pessoa">
+                            {open && "Pessoa"}
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </aside>
