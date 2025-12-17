@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { pessoaSchema } from "@/lib/schemas/pessoaSchema" 
 import { z } from "zod"
 
-type PessoaFormData = z.infer<typeof pessoaSchema>
 
 export default function PessoaPage(){
     const {
