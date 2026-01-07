@@ -1,18 +1,23 @@
-import {Header} from "@/components/Header"
-import {Sidebar} from "@/components/Sidebar"
+"use client"
+
+import { useState } from "react"
+import {Header} from "@/components/layout/Header"
+import {Sidebar} from "@/components/layout/Sidebar"
+import "./globals.css";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}:{
   children: React.ReactNode;
-}>) {
+}) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   return (
     <html lang="en">
-      <body>
-        <Header />
-        <div className="flex">
-          <Sidebar />
-          <main className="flex-1 p-4">
+      <body className="bg-gray-100">
+        <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}/>
+        <div className="flex min-h-screen">
+          <Sidebar open={sidebarOpen}/>
+          <main className="flex-1 bg-white p-6">
             {children}
           </main>
         </div>
